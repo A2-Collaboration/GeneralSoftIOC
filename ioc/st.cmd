@@ -1,0 +1,2 @@
+dbLoadRecords "general.db"
+iocInit

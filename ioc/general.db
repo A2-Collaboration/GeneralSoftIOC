@@ -1,0 +1,15 @@
+record(ai, "GEN:ONLINEDISPLAYS:MUTE")
+{
+    field (DESC, "Disables the alarm sounds")
+    field (LOPR, 0)
+}     
+
+record(ai, "DAQ:RUNFILESIZE")
+{
+    field(DESC, "The filesize of the current run")
+    field(EGU, "MB")
+    field(LOPR, 0)
+    field(HOPR, 10000)
+    field(LOLO, 0)
+    field(HIHI, 6000)
+}

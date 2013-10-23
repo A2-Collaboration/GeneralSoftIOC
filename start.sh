@@ -1,0 +1,5 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
+screen -dm -S GeneralIOC -c screenrc
+echo "Screen session with name GeneralIOC started."

@@ -1,0 +1,11 @@
+# screen session for the IOC and the Monitor scripts
+startup_message off
+deflogin on
+vbell off
+defnonblock 5
+
+hardstatus alwayslastline "%{KW} %{R}%H%{KW} < %-w%{Wk} %n %t %{-}%+w > %= %Y-%m-%d %c "
+
+screen -t "general: ioc" 0 /bin/bash -l -c "./ioc/Run.sh"
+screen -t "MonitorMWPC.pl" 1 /bin/bash -l -c "watch -n 0.5 ./scripts/MonitorMWPC.pl"
+screen -t "MonitorCB.pl" 2 /bin/bash -l -c "watch -n 0.5 ./scripts/MonitorCB.pl"

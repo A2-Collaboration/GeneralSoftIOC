@@ -1,3 +1,5 @@
+# some unsorted PVs, which just need a running IOC somewhere
+
 record(ai, "GEN:ONLINEDISPLAYS:MUTE")
 {
     field (DESC, "Disables the alarm sounds")
@@ -13,3 +15,85 @@ record(ai, "DAQ:RUNFILESIZE")
     field(LOLO, 0)
     field(HIHI, 6000)
 }
+
+record(ai, "MWPC:HV:CH1:VOLT:SET")
+{
+    field(DESC, "Wire Chamber HV Ch1 Set Voltage")
+    field(EGU, "V")
+}
+
+record(ai, "MWPC:HV:CH1:VOLT:READ")
+{
+    field(DESC, "Wire Chamber HV Ch1 Actual Voltage")
+    field(EGU, "V")
+}
+
+record(ai, "MWPC:HV:CH1:CURR:SET")
+{
+    field(DESC, "Wire Chamber HV Ch1 Set Current")
+    field(EGU, "nA")
+}
+
+record(ai, "MWPC:HV:CH1:CURR:READ")
+{
+    field(DESC, "Wire Chamber HV Ch1 Actual Current")
+    field(EGU, "nA")
+}
+
+record(ai, "MWPC:HV:CH2:VOLT:SET")
+{
+    field(DESC, "Wire Chamber HV Ch2 Set Voltage")
+    field(EGU, "V")
+}
+
+record(ai, "MWPC:HV:CH2:VOLT:READ")
+{
+    field(DESC, "Wire Chamber HV Ch2 Actual Voltage")
+    field(EGU, "V")
+}
+
+record(ai, "MWPC:HV:CH2:CURR:SET")
+{
+    field(DESC, "Wire Chamber HV Ch2 Set Current")
+    field(EGU, "nA")
+}
+
+record(ai, "MWPC:HV:CH2:CURR:READ")
+{
+    field(DESC, "Wire Chamber HV Ch2 Actual Current")
+    field(EGU, "nA")
+}
+
+record(ai, "MWPC:HV:CH2:CURR:READ")
+{
+    field(DESC, "Wire Chamber HV Ch2 Actual Current")
+    field(EGU, "nA")
+}
+
+record(ai, "CB:MON:TEMP:TOP")
+{
+    field(DESC, "Crystal Ball Temperature Top")
+    field(EGU, "°C")
+}
+
+record(ai, "CB:MON:TEMP:BOT")
+{
+    field(DESC, "Crystal Ball Temperature Bottom")
+    field(EGU, "°C")
+}
+
+record(ai, "CB:MON:PRES:TOP")
+{
+    field(DESC, "Crystal Ball Pressure Top")
+    field(EGU, "torr")
+}
+
+
+record(ai, "CB:MON:PRES:BOT")
+{
+    field(DESC, "Crystal Ball Pressure Bottom")
+    field(EGU, "torr")
+}
+
+
+

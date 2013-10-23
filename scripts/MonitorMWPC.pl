@@ -61,8 +61,8 @@ $ftp->quit;
 
 
 
-print $data,"\n";
-print "===========\n";
+#print $data,"\n";
+#print "===========\n";
 
 my @lines = split(/\n/,$data);
 my @hdr = split(/\t/, shift @lines); # first line contains column headers

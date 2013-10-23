@@ -4,10 +4,7 @@ use warnings;
 
 use lib '/home/epics/epics/base/lib/perl';
 use CA;
-use Time::HiRes qw(usleep nanosleep);
 use LWP::Simple;
-
-my $usleep = $ARGV[0] || 1e6; # by default, check every second
 
 my $url = 'http://a2ortegapc.online.a2.kph:8080/slow_control/station/a2';
 my $m = # the mapping from the silly webpage at $url to the EPICS records
@@ -25,7 +22,7 @@ foreach my $item (keys %$m) {
   $c->{$item} = $chan;
 }
 
-CA->pend_io(10);
+CA->pend_io(3);
 
 my $data = get($url);
 die "Could not fetch $url..." unless defined $data;
@@ -39,4 +36,4 @@ foreach my $line (split(/\n/, $data)) {
   }
 }
 
-CA->pend_io(10);
+CA->pend_io(3);

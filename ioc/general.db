@@ -1,12 +1,15 @@
 # some unsorted PVs, which just need a running IOC somewhere
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
 
-record(ai, "GEN:ONLINEDISPLAYS:MUTE")
+record(calc, "GEN:ONLINEDISPLAYS:MUTE")
 {
     field (DESC, "Disables the alarm sounds")
     field (LOPR, 0)
 }     
 
-record(ai, "DAQ:RUNFILESIZE")
+record(calc, "DAQ:RUNFILESIZE")
 {
     field(DESC, "The filesize of the current run")
     field(EGU, "MB")
@@ -16,84 +19,103 @@ record(ai, "DAQ:RUNFILESIZE")
     field(HIHI, 6000)
 }
 
-record(ai, "MWPC:HV:CH1:VOLT:SET")
+record(calc, "MWPC:HV:CH1:VOLT:SET")
 {
     field(DESC, "Wire Chamber HV Ch1 Set Voltage")
     field(EGU, "V")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH1:VOLT:READ")
+record(calc, "MWPC:HV:CH1:VOLT:READ")
 {
     field(DESC, "Wire Chamber HV Ch1 Actual Voltage")
     field(EGU, "V")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH1:CURR:SET")
+record(calc, "MWPC:HV:CH1:CURR:SET")
 {
     field(DESC, "Wire Chamber HV Ch1 Set Current")
     field(EGU, "nA")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH1:CURR:READ")
+record(calc, "MWPC:HV:CH1:CURR:READ")
 {
     field(DESC, "Wire Chamber HV Ch1 Actual Current")
     field(EGU, "nA")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH2:VOLT:SET")
+record(calc, "MWPC:HV:CH2:VOLT:SET")
 {
     field(DESC, "Wire Chamber HV Ch2 Set Voltage")
     field(EGU, "V")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH2:VOLT:READ")
+record(calc, "MWPC:HV:CH2:VOLT:READ")
 {
     field(DESC, "Wire Chamber HV Ch2 Actual Voltage")
     field(EGU, "V")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH2:CURR:SET")
+record(calc, "MWPC:HV:CH2:CURR:SET")
 {
     field(DESC, "Wire Chamber HV Ch2 Set Current")
     field(EGU, "nA")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH2:CURR:READ")
+record(calc, "MWPC:HV:CH2:CURR:READ")
 {
     field(DESC, "Wire Chamber HV Ch2 Actual Current")
     field(EGU, "nA")
+    field (CALC, "A")
 }
 
-record(ai, "MWPC:HV:CH2:CURR:READ")
+record(calc, "MWPC:HV:CH2:CURR:READ")
 {
     field(DESC, "Wire Chamber HV Ch2 Actual Current")
     field(EGU, "nA")
+    field (CALC, "A")
 }
 
-record(ai, "CB:MON:TEMP:TOP")
+record(calc, "CB:MON:TEMP:TOP")
 {
     field(DESC, "Crystal Ball Temperature Top")
     field(EGU, "°C")
+    field(PREC, 1)
+    field (CALC, "A")
 }
 
-record(ai, "CB:MON:TEMP:BOT")
+record(calc, "CB:MON:TEMP:BOT")
 {
     field(DESC, "Crystal Ball Temperature Bottom")
     field(EGU, "°C")
+    field(PREC, 1)
+    field (CALC, "A")
 }
 
-record(ai, "CB:MON:PRES:TOP")
+record(calc, "CB:MON:PRES:TOP")
 {
     field(DESC, "Crystal Ball Pressure Top")
-    field(EGU, "torr")
+    field(EGU, "mbar")
+    field(PREC, 2)
+    # conversion from torr to hPa=mbar
+    field(A, 2)
+    field(B, 1.33322)
+    field(CALC, "A*B")
 }
 
-
-record(ai, "CB:MON:PRES:BOT")
+record(calc, "CB:MON:PRES:BOT")
 {
     field(DESC, "Crystal Ball Pressure Bottom")
-    field(EGU, "torr")
+    field(EGU, "mbar")
+    field(PREC, 2)
+    # conversion from torr to hPa=mbar
+    field(A, 2)
+    field(B, 1.33322)
+    field(CALC, "A*B")
 }
-
-
-

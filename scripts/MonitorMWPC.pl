@@ -73,7 +73,7 @@ foreach my $line (@lines) {
   # check if we're interested in that chamber
   next unless grep /^$ch$/, @chambers;
   for(my $i=1;$i<@hdr;$i++) {
-    print $hdr[$i]," ",$ch,"\n";
+    #print $hdr[$i]," ",$ch,"\n";
     my $pv = $m->{$hdr[$i]};
     my $val = $vals[$i-1]; # don't forget the first column is the ch
     $pv =~ s/\$/$ch/;

@@ -6,6 +6,9 @@ defnonblock 5
 
 hardstatus alwayslastline "%{KW} %{R}%H%{KW} < %-w%{Wk} %n %t %{-}%+w > %= %Y-%m-%d %c "
 
+# don't remove windows from the window list as soon as window process exits.
+zombie kr #  k: destory window, r: resurrect window
+
 screen -t "EPICS IOC" 0 /bin/bash -i -c "./ioc/Run.sh"
 screen -t "MonitorMWPC.pl" 1 /bin/bash -i -c "watch -n 0.5 ./scripts/MonitorMWPC.pl"
 screen -t "MonitorCB.pl" 2 /bin/bash -i -c "watch -n 0.5 ./scripts/MonitorCB.pl"

@@ -9,15 +9,27 @@ record(calc, "GEN:ONLINEDISPLAYS:MUTE")
     field (LOPR, 0)
 }     
 
+# records for scripts/MonitorScratch.pl
+
 record(calc, "DAQ:RUNFILESIZE")
 {
-    field(DESC, "The filesize of the current run")
+    field(DESC, "Filesize of newest file in scratch")
     field(EGU, "MB")
     field(LOPR, 0)
     field(HOPR, 10000)
+    field(HIGH, 6000)
+    field(LOW, 0)
     field(LOLO, 0)
-    field(HIHI, 6000)
+    field(HIHI, 8000)
+    field (CALC, "A")
 }
+
+record(stringin, "DAQ:RUNFILENAME")
+{
+    field(DESC, "Filename of newest file in scratch")    
+}
+
+# records for scripts/MonitorMWPC.pl
 
 record(calc, "MWPC:HV:CH1:VOLT:SET")
 {
@@ -38,6 +50,9 @@ record(calc, "MWPC:HV:CH1:CURR:SET")
     field(DESC, "Wire Chamber HV Ch1 Set Current")
     field(EGU, "nA")
     field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
 }
 
 record(calc, "MWPC:HV:CH1:CURR:READ")
@@ -45,6 +60,9 @@ record(calc, "MWPC:HV:CH1:CURR:READ")
     field(DESC, "Wire Chamber HV Ch1 Actual Current")
     field(EGU, "nA")
     field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
 }
 
 record(calc, "MWPC:HV:CH2:VOLT:SET")
@@ -66,6 +84,9 @@ record(calc, "MWPC:HV:CH2:CURR:SET")
     field(DESC, "Wire Chamber HV Ch2 Set Current")
     field(EGU, "nA")
     field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
 }
 
 record(calc, "MWPC:HV:CH2:CURR:READ")
@@ -73,14 +94,12 @@ record(calc, "MWPC:HV:CH2:CURR:READ")
     field(DESC, "Wire Chamber HV Ch2 Actual Current")
     field(EGU, "nA")
     field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
 }
 
-record(calc, "MWPC:HV:CH2:CURR:READ")
-{
-    field(DESC, "Wire Chamber HV Ch2 Actual Current")
-    field(EGU, "nA")
-    field (CALC, "A")
-}
+# records for scripts/MonitorCB.pl
 
 record(calc, "CB:MON:TEMP:TOP")
 {

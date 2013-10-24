@@ -4,7 +4,7 @@ use warnings;
 
 use lib "$ENV{EPICS_BASE}/lib/perl";
 use CA;
-use Time::HiRes qw(usleep nanosleep);
+use Time::HiRes qw(usleep);
 use Net::FTP;
 use Data::Dumper;
 use Scalar::Util 'blessed';

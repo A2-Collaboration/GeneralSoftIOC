@@ -1,2 +1,0 @@
-dbLoadRecords "general.db"
-iocInit

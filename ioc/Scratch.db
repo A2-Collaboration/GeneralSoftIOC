@@ -1,0 +1,23 @@
+# records for scripts/MonitorScratch.pl
+
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
+
+record(calc, "DAQ:RUNFILESIZE")
+{
+    field(DESC, "Filesize of newest file in scratch")
+    field(EGU, "MB")
+    field(LOPR, 0)
+    field(HOPR, 10000)
+    field(HIGH, 6000)
+    field(LOW, 0)
+    field(LOLO, 0)
+    field(HIHI, 8000)
+    field (CALC, "A")
+}
+
+record(stringin, "DAQ:RUNFILENAME")
+{
+    field(DESC, "Filename of newest file in scratch")    
+}

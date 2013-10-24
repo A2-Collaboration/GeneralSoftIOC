@@ -1,0 +1,73 @@
+# records for scripts/MonitorMWPC.pl
+
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
+
+record(calc, "MWPC:HV:CH1:VOLT:SET")
+{
+    field(DESC, "Wire Chamber HV Ch1 Set Voltage")
+    field(EGU, "V")
+    field (CALC, "A")
+}
+
+record(calc, "MWPC:HV:CH1:VOLT:READ")
+{
+    field(DESC, "Wire Chamber HV Ch1 Actual Voltage")
+    field(EGU, "V")
+    field (CALC, "A")
+}
+
+record(calc, "MWPC:HV:CH1:CURR:SET")
+{
+    field(DESC, "Wire Chamber HV Ch1 Set Current")
+    field(EGU, "nA")
+    field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
+}
+
+record(calc, "MWPC:HV:CH1:CURR:READ")
+{
+    field(DESC, "Wire Chamber HV Ch1 Actual Current")
+    field(EGU, "nA")
+    field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
+}
+
+record(calc, "MWPC:HV:CH2:VOLT:SET")
+{
+    field(DESC, "Wire Chamber HV Ch2 Set Voltage")
+    field(EGU, "V")
+    field (CALC, "A")
+}
+
+record(calc, "MWPC:HV:CH2:VOLT:READ")
+{
+    field(DESC, "Wire Chamber HV Ch2 Actual Voltage")
+    field(EGU, "V")
+    field (CALC, "A")
+}
+
+record(calc, "MWPC:HV:CH2:CURR:SET")
+{
+    field(DESC, "Wire Chamber HV Ch2 Set Current")
+    field(EGU, "nA")
+    field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
+}
+
+record(calc, "MWPC:HV:CH2:CURR:READ")
+{
+    field(DESC, "Wire Chamber HV Ch2 Actual Current")
+    field(EGU, "nA")
+    field (CALC, "A")
+    # multiply by 10
+    field(B, 10)
+    field(CALC, "A*B")
+}

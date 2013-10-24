@@ -1,0 +1,43 @@
+# records for scripts/MonitorCB.pl
+
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
+
+record(calc, "CB:MON:TEMP:TOP")
+{
+    field(DESC, "Crystal Ball Temperature Top")
+    field(EGU, "°C")
+    field(PREC, 1)
+    field (CALC, "A")
+}
+
+record(calc, "CB:MON:TEMP:BOT")
+{
+    field(DESC, "Crystal Ball Temperature Bottom")
+    field(EGU, "°C")
+    field(PREC, 1)
+    field (CALC, "A")
+}
+
+record(calc, "CB:MON:PRES:TOP")
+{
+    field(DESC, "Crystal Ball Pressure Top")
+    field(EGU, "mbar")
+    field(PREC, 2)
+    # conversion from torr to hPa=mbar
+    field(A, 2)
+    field(B, 1.33322)
+    field(CALC, "A*B")
+}
+
+record(calc, "CB:MON:PRES:BOT")
+{
+    field(DESC, "Crystal Ball Pressure Bottom")
+    field(EGU, "mbar")
+    field(PREC, 2)
+    # conversion from torr to hPa=mbar
+    field(A, 2)
+    field(B, 1.33322)
+    field(CALC, "A*B")
+}

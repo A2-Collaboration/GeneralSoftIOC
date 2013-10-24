@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use lib '/home/epics/epics/base/lib/perl';
+use lib "$ENV{EPICS_BASE}/lib/perl";
 use CA;
 use LWP::Simple;
 

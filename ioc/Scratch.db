@@ -4,7 +4,7 @@
 # first calc is more flexible and second ai has RVAL as long,
 # so floats are a bit difficult to feed in....
 
-record(calc, "DAQ:RUNFILESIZE")
+record(calc, "GEN:MON:Runfilesize")
 {
     field(DESC, "Filesize of newest file in scratch")
     field(EGU, "MB")
@@ -17,7 +17,7 @@ record(calc, "DAQ:RUNFILESIZE")
     field (CALC, "A")
 }
 
-record(stringin, "DAQ:RUNFILENAME")
+record(stringin, "GEN:MON:Runfilename")
 {
     field(DESC, "Filename of newest file in scratch")    
 }

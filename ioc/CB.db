@@ -4,7 +4,7 @@
 # first calc is more flexible and second ai has RVAL as long,
 # so floats are a bit difficult to feed in....
 
-record(calc, "CB:MON:TEMP:TOP")
+record(calc, "CB:CB:MON:TEMP:TOP")
 {
     field(DESC, "Crystal Ball Temperature Top")
     field(EGU, "°C")
@@ -14,7 +14,7 @@ record(calc, "CB:MON:TEMP:TOP")
     field(HOPR, 50)
 }
 
-record(calc, "CB:MON:TEMP:BOT")
+record(calc, "CB:CB:MON:TEMP:BOT")
 {
     field(DESC, "Crystal Ball Temperature Bottom")
     field(EGU, "°C")
@@ -24,7 +24,7 @@ record(calc, "CB:MON:TEMP:BOT")
     field(HOPR, 50)
 }
 
-record(calc, "CB:MON:PRES:TOP")
+record(calc, "CB:CB:MON:PRES:TOP")
 {
     field(DESC, "Crystal Ball Pressure Top")
     field(EGU, "mbar")
@@ -37,7 +37,7 @@ record(calc, "CB:MON:PRES:TOP")
     field(HOPR, 25)
 }
 
-record(calc, "CB:MON:PRES:BOT")
+record(calc, "CB:CB:MON:PRES:BOT")
 {
     field(DESC, "Crystal Ball Pressure Bottom")
     field(EGU, "mbar")

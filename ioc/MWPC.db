@@ -4,21 +4,21 @@
 # first calc is more flexible and second ai has RVAL as long,
 # so floats are a bit difficult to feed in....
 
-record(calc, "MWPC:HV:CH1:VOLT:SET")
+record(calc, "CB:MWPC:HV:CH1:VOLT:SET")
 {
     field(DESC, "Wire Chamber HV Ch1 Set Voltage")
     field(EGU, "V")
     field (CALC, "A")
 }
 
-record(calc, "MWPC:HV:CH1:VOLT:READ")
+record(calc, "CB:MWPC:HV:CH1:VOLT:READ")
 {
     field(DESC, "Wire Chamber HV Ch1 Actual Voltage")
     field(EGU, "V")
     field (CALC, "A")
 }
 
-record(calc, "MWPC:HV:CH1:CURR:SET")
+record(calc, "CB:MWPC:HV:CH1:CURR:SET")
 {
     field(DESC, "Wire Chamber HV Ch1 Set Current")
     field(EGU, "nA")
@@ -28,7 +28,7 @@ record(calc, "MWPC:HV:CH1:CURR:SET")
     field(CALC, "A*B")
 }
 
-record(calc, "MWPC:HV:CH1:CURR:READ")
+record(calc, "CB:MWPC:HV:CH1:CURR:READ")
 {
     field(DESC, "Wire Chamber HV Ch1 Actual Current")
     field(EGU, "nA")
@@ -38,21 +38,21 @@ record(calc, "MWPC:HV:CH1:CURR:READ")
     field(CALC, "A*B")
 }
 
-record(calc, "MWPC:HV:CH2:VOLT:SET")
+record(calc, "CB:MWPC:HV:CH2:VOLT:SET")
 {
     field(DESC, "Wire Chamber HV Ch2 Set Voltage")
     field(EGU, "V")
     field (CALC, "A")
 }
 
-record(calc, "MWPC:HV:CH2:VOLT:READ")
+record(calc, "CB:MWPC:HV:CH2:VOLT:READ")
 {
     field(DESC, "Wire Chamber HV Ch2 Actual Voltage")
     field(EGU, "V")
     field (CALC, "A")
 }
 
-record(calc, "MWPC:HV:CH2:CURR:SET")
+record(calc, "CB:MWPC:HV:CH2:CURR:SET")
 {
     field(DESC, "Wire Chamber HV Ch2 Set Current")
     field(EGU, "nA")
@@ -62,7 +62,7 @@ record(calc, "MWPC:HV:CH2:CURR:SET")
     field(CALC, "A*B")
 }
 
-record(calc, "MWPC:HV:CH2:CURR:READ")
+record(calc, "CB:MWPC:HV:CH2:CURR:READ")
 {
     field(DESC, "Wire Chamber HV Ch2 Actual Current")
     field(EGU, "nA")

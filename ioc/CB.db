@@ -9,7 +9,9 @@ record(calc, "CB:MON:TEMP:TOP")
     field(DESC, "Crystal Ball Temperature Top")
     field(EGU, "°C")
     field(PREC, 1)
-    field (CALC, "A")
+    field(CALC, "A")
+    field(LOPR, 10)
+    field(HOPR, 50)
 }
 
 record(calc, "CB:MON:TEMP:BOT")
@@ -17,7 +19,9 @@ record(calc, "CB:MON:TEMP:BOT")
     field(DESC, "Crystal Ball Temperature Bottom")
     field(EGU, "°C")
     field(PREC, 1)
-    field (CALC, "A")
+    field(CALC, "A")
+    field(LOPR, 10)
+    field(HOPR, 50)
 }
 
 record(calc, "CB:MON:PRES:TOP")
@@ -29,6 +33,8 @@ record(calc, "CB:MON:PRES:TOP")
     field(A, 2)
     field(B, 1.33322)
     field(CALC, "A*B")
+    field(LOPR, 15)
+    field(HOPR, 25)
 }
 
 record(calc, "CB:MON:PRES:BOT")
@@ -40,4 +46,6 @@ record(calc, "CB:MON:PRES:BOT")
     field(A, 2)
     field(B, 1.33322)
     field(CALC, "A*B")
+    field(LOPR, 45)
+    field(HOPR, 55)
 }

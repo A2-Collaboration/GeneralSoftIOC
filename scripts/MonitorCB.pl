@@ -9,10 +9,10 @@ use LWP::Simple;
 my $url = 'http://a2ortegapc.online.a2.kph:8080/slow_control/station/a2';
 my $m = # the mapping from the silly webpage at $url to the EPICS records
   {
-   'Temperature_top (C)' => 'CB:MON:TEMP:TOP',
-   'Temperature_bot (C)' => 'CB:MON:TEMP:BOT',
-   'pressure_top (torr)' => 'CB:MON:PRES:TOP',
-   'pressure_bottom (torr)' => 'CB:MON:PRES:BOT'
+   'Temperature_top (C)' => 'CB:CB:MON:TEMP:Top',
+   'Temperature_bot (C)' => 'CB:CB:MON:TEMP:Bot',
+   'pressure_top (torr)' => 'CB:CB:MON:PRES:Top',
+   'pressure_bottom (torr)' => 'CB:CB:MON:PRES:Bot'
   };
 
 my $c; # holds the EPICS objects

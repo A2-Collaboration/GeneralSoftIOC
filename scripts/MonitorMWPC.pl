@@ -18,10 +18,10 @@ my $file = 'cde_htd_monitor.log';
 my @chambers = qw(1 2); # the available chambers 1,2
 my $m = # the mapping from the silly file content from ftp to the EPICS records
   {
-   'Voltage (V)(actual)' => 'MWPC:HV:CH$:VOLT:READ', # $ will be replaced by Chamber number
-   'Voltage (V)(settings)' => 'MWPC:HV:CH$:VOLT:SET',
-   'Current (nA)(actual)' => 'MWPC:HV:CH$:CURR:READ',
-   'Current (nA)(settings)' => 'MWPC:HV:CH$:CURR:SET'
+   'Voltage (V)(actual)' => 'CB:MWPC:HV:CH$:VOLT:READ', # $ will be replaced by Chamber number
+   'Voltage (V)(settings)' => 'CB:MWPC:HV:CH$:VOLT:SET',
+   'Current (nA)(actual)' => 'CB:MWPC:HV:CH$:CURR:READ',
+   'Current (nA)(settings)' => 'CB:MWPC:HV:CH$:CURR:SET'
   };
 
 my $c; # holds the EPICS objects

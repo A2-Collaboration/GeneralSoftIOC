@@ -15,8 +15,8 @@ my $inotify = new Linux::Inotify2
   or die "unable to create new inotify object: $!";
 
 my $c; # holds the EPICS objects
-$c->{filesize} = CA->new("DAQ:RUNFILESIZE.A"); # use input A of calc record
-$c->{filename} = CA->new("DAQ:RUNFILENAME"); # just a stringin record...
+$c->{filesize} = CA->new("GEN:MON:Runfilesize.A"); # use input A of calc record
+$c->{filename} = CA->new("GEN:MON:Runfilename"); # just a stringin record...
 
 CA->pend_io(3);
 

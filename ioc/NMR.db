@@ -1,0 +1,13 @@
+# records for scripts/MonitorNMR.pl
+
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
+
+record(calc, "TAGG:MagneticField")
+{
+    field(DESC, "Tagger Magnetic Field measured via NMR")
+    field(EGU, "T")
+    field(PREC, 10)
+    field(CALC, "A/1e7")
+}

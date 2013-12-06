@@ -4,7 +4,7 @@
 # first calc is more flexible and second ai has RVAL as long,
 # so floats are a bit difficult to feed in....
 
-record(calc, "GEN:MON:Runfilesize")
+record(calc, "GEN:MON:Runfilesize_fast")
 {
     field(DESC, "Filesize of newest file in scratch")
     field(EGU, "MB")
@@ -15,6 +15,14 @@ record(calc, "GEN:MON:Runfilesize")
     field(LOLO, 0)
     field(HIHI, 8000)
     field (CALC, "A")
+}
+
+record(calc, "GEN:MON:Runfilesize")
+{
+    field(INPA, "GEN:MON:Runfilesize_fast")
+    field(CALC, "A")
+    field(SCAN, "1 second")
+    field(EGU, "MB")
 }
 
 record(stringin, "GEN:MON:Runfilename")

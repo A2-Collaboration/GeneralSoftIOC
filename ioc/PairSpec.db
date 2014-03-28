@@ -1,0 +1,6 @@
+# records to hold PairSpec tagging efficiency
+
+record(waveform,"BEAM:PAIRSPEC:TaggEff") {
+        field(NELM,"352")
+        field(FTVL,"FLOAT")
+} 

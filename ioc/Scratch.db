@@ -29,3 +29,9 @@ record(stringin, "GEN:MON:Runfilename")
 {
     field(DESC, "Filename of newest file in scratch")    
 }
+
+record(calc, "GEN:MON:EventsWithError")
+{
+    field(EGU, "%")
+    field(CALC, "A")
+}

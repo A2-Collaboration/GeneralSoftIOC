@@ -32,6 +32,5 @@ record(stringin, "GEN:MON:Runfilename")
 
 record(calc, "GEN:MON:EventsWithError")
 {
-    field(EGU, "%")
     field(CALC, "A")
 }

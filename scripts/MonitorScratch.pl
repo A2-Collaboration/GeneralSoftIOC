@@ -27,7 +27,6 @@ foreach my $pv (keys $c) {
 print "Watching $scratch...\n";
 
 # add watcher for scratch
-my $curname = undef;
 $inotify->watch ($scratch, IN_CREATE | IN_MODIFY,
                  sub {
                    my $e = shift;
@@ -36,30 +35,17 @@ $inotify->watch ($scratch, IN_CREATE | IN_MODIFY,
                    print "Warning: $fullname is gone\n" if $e->IN_IGNORED;
                    print "Warning: events for $fullname have been lost\n" if $e->IN_Q_OVERFLOW;
 
-                   my $put = 0; # flag: 1=put size, 2=put size and name
-
                    my $name = $e->name; # relative to directory
+		   return unless $name =~ /\.dat$/;
+		   
                    if($e->IN_CREATE) {
-                     $curname = $name;
-                     $put = 2;
-                     #print "$name created\n";
+		     $c->{filename}->put($name);
                    }
-                   elsif($e->IN_MODIFY) {
-                     if(!defined $curname || $name ne $curname) {
-                       return;
-                     }
-                     $put = 1;
-                     #print "$name modified\n";
-                   }
-
-                   if($put>0) {
-                     my $filesize = -s $fullname; # in bytes
+                   if($e->IN_MODIFY) {
+		     my $filesize = -s $fullname; # in bytes
                      $filesize /= 2**20;
                      #print "Setting filesize to $filesize...\n";
                      $c->{filesize}->put($filesize);
-                     if($put>1) {
-                       $c->{filename}->put($curname);
-                     }
                    }
                  })
   or die "unable to watch dir $scratch: $!";

@@ -1,0 +1,103 @@
+# records for scripts/MonitorTarget.pl
+
+# we use calc records instead of ai to do some unit conversion,
+# first calc is more flexible and second ai has RVAL as long,
+# so floats are a bit difficult to feed in....
+
+record(calc, "TARGET:H2:Thall")
+{
+    field(DESC, "Target H2 Hall Temperature")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Pcible")
+{
+    field(DESC, "Target H2 Pressure")
+    field(EGU, "mbar")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:JPB")
+{
+    field(DESC, "")
+    field(EGU, "bar")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Platine")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:CLTS")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:C2")
+{
+    field(DESC, "")
+    field(EGU, "")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:C3")
+{
+    field(DESC, "")
+    field(EGU, "")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Ccible")
+{
+    field(DESC, "")
+    field(EGU, "")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Tsi")
+{
+    field(DESC, "")
+    field(EGU, "")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:PTcomp")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Isovacuum")
+{
+    field(DESC, "")
+    field(EGU, "")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:Tcltsalu")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:PTcond")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}
+
+record(calc, "TARGET:H2:PTshield")
+{
+    field(DESC, "")
+    field(EGU, "K")
+    field (CALC, "A")
+}

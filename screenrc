@@ -14,3 +14,4 @@ screen -t "MonitorMWPC.pl" 1 /bin/bash -i -c "watch -n 0.5 ./scripts/MonitorMWPC
 screen -t "MonitorCB.pl" 2 /bin/bash -i -c "watch -n 0.5 ./scripts/MonitorCB.pl"
 screen -t "MonitorScratch.pl" 3 /bin/bash -i -c "./scripts/MonitorScratch.pl"
 screen -t "MonitorNMR.pl" 4 /bin/bash -i -c "watch -n 1 ./scripts/MonitorNMR.pl"
+screen -t "MonitorTarget.pl" 5 /bin/bash -i -c "watch -n 10 ./scripts/MonitorTarget.pl"

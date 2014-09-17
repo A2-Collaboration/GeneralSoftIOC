@@ -2,6 +2,9 @@
 use warnings;
 use strict;
 
+use lib "$ENV{EPICS_BASE}/lib/perl";
+use CA;
+
 use LWP::Simple;
 use FindBin qw($RealBin);
 use lib "$RealBin/lib";
@@ -28,10 +31,16 @@ my $CONFIG = [
 &main;
 
 sub main {
+  for my $c (@$CONFIG) {
+    my $pv = $c->{PV};
+    $c->{E} = CA->new("$pv.A");
+  }
+  CA->pend_io(3);
+
   my $url = 'http://10.32.162.34:5080/.snap?hydrogen.vi';
   my $content = get($url);
   die "Couldn't get $url" unless defined $content;
-  
+
   my $image = GD::Image->newFromJpegData($content) or die "Cannot create GD::Image: $!";
   my $recognizer = OCR::PerfectCR->new;
   $recognizer->load_charmap_file("$RealBin/lib/charmap");
@@ -39,9 +48,10 @@ sub main {
     my $val = $recognizer->recognize(get_bw_image($image,$c->{Pos}));
     $val =~ s/\s//g;
     print $c->{PV}," => '",$val,"'\n";
+    $c->{E}->put($val);
   }
-  $recognizer->save_charmap_file("$RealBin/lib/charmap");
-
+  #$recognizer->save_charmap_file("$RealBin/lib/charmap");
+  CA->pend_io(3);
 }
 
 sub get_bw_image {

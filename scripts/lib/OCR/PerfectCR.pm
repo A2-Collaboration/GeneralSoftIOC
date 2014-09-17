@@ -261,17 +261,17 @@ sub chopup {
   
   my $bgcolor = $inimage->getPixel(0,0);
   my (@bgrgb) = $inimage->rgb($bgcolor);
-  print "Background color at index $bgcolor [@bgrgb]\n";
+  #print "Background color at index $bgcolor [@bgrgb]\n";
   my ($width, $height) = $inimage->getBounds;
   
   my $mincol=0;
   while ($mincol <= $width) {
     my ($startcol, $endcol);
-    print "Finding bounds starting at $mincol\n";
+    #print "Finding bounds starting at $mincol\n";
 
     # Find left and right char boundry.
     for my $col ($mincol .. $width-1) {
-      print "Column $col: ";
+      #print "Column $col: ";
       my $hasnonbg=0;
       for my $row (0 .. $height-1) {
         if ($inimage->getPixel($col, $row) != $bgcolor) {
@@ -279,7 +279,7 @@ sub chopup {
           last;
         }
       }
-      print "$hasnonbg\n";
+      #print "$hasnonbg\n";
       
       if (not defined $startcol) {
         if ($hasnonbg) {
@@ -299,7 +299,7 @@ sub chopup {
 
     if (not defined $startcol or
         $startcol >= $endcol) {
-      print "Couldn't find anything\n";
+      #print "Couldn't find anything\n";
       last;
     }
     
@@ -336,7 +336,7 @@ sub chopup {
       }
     }
     
-    print "Character at ($startcol, $startrow)-($endcol, $endrow)\n";
+    #print "Character at ($startcol, $startrow)-($endcol, $endrow)\n";
     my $charimage = gdextract($inimage, $startcol, $startrow, $endcol, $endrow);
     my $this = $imagefunc->($recognizer, $charimage, @bgrgb);
     $this->{prespace} = $startcol - $mincol;

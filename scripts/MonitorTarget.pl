@@ -2,32 +2,43 @@
 use warnings;
 use strict;
 
+use LWP::Simple;
 use FindBin qw($RealBin);
 use lib "$RealBin/lib";
 use OCR::PerfectCR;
 use GD;
 
 my $CONFIG = [
-              {
-               'PV' => 'TARGET:HallTemp',
-               'Pos' => [917, 241, 960, 253]
-              },
-              {
-               'PV' => 'TARGET:H2:Pres',
-               'Pos' => [917, 261, 960, 273]
-              }
+              { 'PV' => 'TARGET:H2:Thall', 'Pos' => [917, 241, 960, 253] },
+              { 'PV' => 'TARGET:H2:Pcible', 'Pos' => [917, 261, 960, 273] },
+              { 'PV' => 'TARGET:H2:JPB', 'Pos' => [917, 283, 960, 295] },
+              { 'PV' => 'TARGET:H2:Platine', 'Pos' => [917, 300, 960, 312] },
+              { 'PV' => 'TARGET:H2:CLTS', 'Pos' => [917, 324, 960, 336] },
+              { 'PV' => 'TARGET:H2:C2', 'Pos' => [917, 344, 960, 356] },
+              { 'PV' => 'TARGET:H2:C3', 'Pos' => [917, 366, 960, 378] },
+              { 'PV' => 'TARGET:H2:Ccible', 'Pos' => [917, 386, 960, 398] },
+              { 'PV' => 'TARGET:H2:Tsi', 'Pos' => [917, 408, 960, 420] },
+              { 'PV' => 'TARGET:H2:PTcomp', 'Pos' => [917, 426, 960, 438] },
+              { 'PV' => 'TARGET:H2:Isovacuum', 'Pos' => [917, 451, 960, 463] },
+              { 'PV' => 'TARGET:H2:Tcltsalu', 'Pos' => [917, 470, 960, 484] },
+              { 'PV' => 'TARGET:H2:PTcond', 'Pos' => [917, 489, 960, 503] },
+              { 'PV' => 'TARGET:H2:PTshield', 'Pos' => [917, 509, 960, 524] }
              ];
 
 &main;
 
 sub main {
-
-  my $image = GD::Image->new("snap.jpeg") or die "Can't open snap.jpeg: $!";
+  my $url = 'http://10.32.162.34:5080/.snap?hydrogen.vi';
+  my $content = get($url);
+  die "Couldn't get $url" unless defined $content;
+  
+  my $image = GD::Image->newFromJpegData($content) or die "Cannot create GD::Image: $!";
   my $recognizer = OCR::PerfectCR->new;
   $recognizer->load_charmap_file("$RealBin/lib/charmap");
   for my $c (@$CONFIG) {
     my $val = $recognizer->recognize(get_bw_image($image,$c->{Pos}));
-    print $c->{PV}," => ",$val,"\n";
+    $val =~ s/\s//g;
+    print $c->{PV}," => '",$val,"'\n";
   }
   $recognizer->save_charmap_file("$RealBin/lib/charmap");
 
